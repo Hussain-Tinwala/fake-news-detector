@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import re
 import pandas as pd
+import nltk
+nltk.download('stopwords') 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -16,7 +18,7 @@ st.markdown("Detect if a news article is **Fake** or **Real** using Machine Lear
 
 # Load and prepare data
 news_df = pd.read_csv('train.csv')
-news_df = news_df.fillna(' ')
+news_df = news_df.fillna(' ')S
 news_df['content'] = news_df['author'] + ' ' + news_df['title']
 
 # Preprocess data
