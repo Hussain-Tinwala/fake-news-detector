@@ -3,7 +3,12 @@ import numpy as np
 import re
 import pandas as pd
 import nltk
-nltk.download('stopwords') 
+@st.cache_resource
+def download_nltk_data():
+    nltk.download('stopwords')
+
+download_nltk_data()
+
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
